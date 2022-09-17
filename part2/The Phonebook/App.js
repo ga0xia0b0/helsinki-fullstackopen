@@ -26,7 +26,7 @@ const App = () => {
     else{
       const result = window.confirm(`${newName} is already added to phonebook,replace the old number with a new one?`)
       if(result){
-        const id = persons.filter(person=>person.name===newName)[0].id
+        const id = persons.find(person=>person.name===newName).id
         personServices
           .update(id,newperson)
           .catch(error=>{
@@ -47,7 +47,7 @@ const App = () => {
   const delPerson = (name) =>{
     const result = window.confirm(`Delete ${name} ?`)
     if(result){
-      personServices.del(persons.filter(person=>person.name===name)[0].id)
+      personServices.del(persons.find(person=>person.name===name).id)
       setPersons(persons.filter(person=>person.name!==name))
       setMessage(`Deleted ${name}`);setClassName('succeed')
       setTimeout(()=>{setMessage('')},3000)
