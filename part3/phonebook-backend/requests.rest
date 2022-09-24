@@ -1,0 +1,11 @@
+GET http://localhost:3001/api/persons
+###
+POST http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "number":"999",
+    "name":"sdl"
+}
+###
+DELETE http://localhost:3001/api/persons/632de7b871901e65f60b4072
